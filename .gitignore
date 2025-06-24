@@ -43,3 +43,5 @@
 # misc
 .vscode
 commands.txt
+include/GLFW
+include/glm
