@@ -2,7 +2,7 @@ CC=g++
 
 all: hello
 
-hello: main.cpp shaders.cpp glad.c
-	$(CC) main.cpp glad.c -L./lib -lglfw3dll -lshader -I./include -o run.exe
+hello: main.cpp glad.c
+	$(CC) main.cpp glad.c shaders.cpp -L./lib -lglfw3 -I./include -o gol.exe
 clear:
-	rm run.exe
+	rm gol.exe

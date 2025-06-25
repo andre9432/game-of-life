@@ -1,7 +1,9 @@
 #ifndef SHADERS_H
 #define SHADERS_H
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
-// THIS FILE MUST BE CONTAINED IN A FOLDER NAMED "shader" in your include folder
 
 class Shader
 {
@@ -14,16 +16,14 @@ public:
 
 	void create(const char* shadersPath);
 
-	void setint(const char* name, int* valueptr);
-	void setfloat(const char* name, float* valueptr);
-
-	/* MUST BE CONTIGUOUS IN MEMORY
-	   INPUT FIRST VALUE IN ARRAY*/
-	void set2i(const char* name, int* valueptr);
-	void set2f(const char* name, float* valueptr);
-	void set3f(const char* name, float* valueptr);
-	void set4f(const char* name, float* valueptr);
-	void setmat4(const char* name, const float* valueptr);
+	void setbool(const char* name, bool value);
+	void setint(const char* name, int value);
+	void set2i(const char* name, glm::ivec2 value);
+	void setfloat(const char* name, float value);
+	void set2f(const char* name, glm::vec2 value);
+	void set3f(const char* name, glm::vec3 value);
+	void set4f(const char* name, glm::vec4 value);
+	void setmat4(const char* name, const glm::mat4& value);
 
 	void use();
 };
