@@ -113,6 +113,7 @@ int main(void)
     bool frameStep{ false };
     double lastStepTime{ 0.0 };
     bool pausedgame{false};
+    bool isPauseKeyPressed { false };
 
     glBindVertexArray(VAO);
     /* Loop until the user closes the window */
@@ -126,8 +127,6 @@ int main(void)
         /* Input */
         double xpos, ypos;
         glfwGetCursorPos(window, &xpos, &ypos);
-
-        //std::cout << -std::abs(WINDOW::WIDTH - WINDOW::HEIGHT) / 2 + 100 * (int)xpos / std::min(WINDOW::WIDTH, WINDOW::HEIGHT) << ' ' << -std::abs(WINDOW::WIDTH - WINDOW::HEIGHT) / 2 + 100 * (std::min(WINDOW::WIDTH, WINDOW::HEIGHT) - (int)ypos) / std::min(WINDOW::WIDTH, WINDOW::HEIGHT) << '\n';
 
         if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
         {
@@ -150,12 +149,18 @@ int main(void)
             // INVALIDATE THE BUFFER FOR ASYNCHRONISATION
             //glInvalidateBufferData(ssbo2);
         }
-        if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
+        if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS && !isPauseKeyPressed)
         {
+            isPauseKeyPressed = true;
+            
             if (!pausedgame)
                 pausedgame = true;
             else
                 pausedgame = false;
+        }
+        if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_RELEASE)
+        {
+            isPauseKeyPressed = false;
         }
         
 
