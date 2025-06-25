@@ -103,8 +103,8 @@ int main(void)
 
     // ------------------------------------------
 
-    Shader shader1{"./shaders/ssbo1"};
-    Shader shader2{"./shaders/ssbo2"};
+    Shader shader1{"./src/shaders/ssbo1"};
+    Shader shader2{"./src/shaders/ssbo2"};
 
     double elapsedTime;
     double deltaTime;
