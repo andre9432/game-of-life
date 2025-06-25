@@ -20,3 +20,8 @@ This project leverages the power of the fragment shaders in OpenGL 4.6 to update
 1. Clone this repository.
 2. Run `make` in the root directory.
 3. Run the executable *gol.exe*.
+
+## How to use
+
+- `space` to pause
+- `left click` to draw cell
